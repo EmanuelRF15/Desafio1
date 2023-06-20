@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+  <title>Meu Site</title>
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+    /* Estilos CSS */
+    body {
+      font-family: 'SF Pro Display', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: fixed; /* Adiciona posição fixa */
+      top: 0; /* Alinha ao topo */
+      width: 100%; /* Preenche a largura total */
+      z-index: 1; /* Define a ordem de sobreposição */
+      background-color: #fff;
+      color: #232340;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between; /* Alinha os elementos ao espaço entre eles */
+      align-items: center;
+    }
+
+    nav {
+       width: 100%;
+       margin: 1em 1em 1em 1em;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center; /* Centraliza os itens da barra de navegação */
+      align-items: center;
+    }
+
+    nav li {
+      margin-right: 0;
+      align-items: center;
+    }
+
+    nav li:first-child{
+        position: absolute;
+        left: 1.5em;
+    }
+
+    nav li:last-child{
+        position: absolute;
+        right: 1.5em;
+    }
+
+    nav a {
+      color: #232340;
+      text-decoration: none;
+      padding: 5px;
+      align-items: center;
+    }
+
+    h1{
+        font-size: 5em;
+    }
+    p{
+        font-size: 1.4em;
+    }
+    h3{
+      font-size: 1.5em;
+    }
+
+    .logo {
+      font-size: 20px;
+      margin-right: 0; /* Alinha o logo à esquerda */
+    }
+
+    .button {
+      background: #232340;
+      border-radius: 8px;
+      color: #fff;
+      padding: 16px 32px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-right: auto;
+    }
+    
+    .home {
+        margin: 1em 4em 0 4em;
+        display: grid;
+        grid-template-columns: 40% 60% ;
+        grid-template-rows: auto;
+        grid-column-gap: 1em;
+    }
+    .home img{
+        margin-top: 4em;
+        margin-left: 1em;
+        grid-area: 1/2/5/5;
+        max-width: 90%;
+        height: auto;
+    }
+    .home p{
+        margin: auto;
+        text-align: start;
+        margin-left: 15%;
+        margin-bottom: 10%;
+    }
+    .home h1{
+        margin-top: 15%;
+        margin-bottom: 10%;
+        text-align: start;
+        margin-left: 15%;
+    }
+    .home a {
+        width: fit-content;
+        height: fit-content;
+        margin: 0;
+        text-align: start;
+        margin-left: 15%;
+    }
+
+
+    .about{
+        margin: 1em 4em 3em 1em;
+    }
+    .about .conter{
+        margin-left: 15%;
+    }
+    .aboutTop {
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+    }
+    .aboutTop h1 {
+        grid-area: 1/2;
+    }
+    .aboutTop img {
+        grid-area: 2/2/3/4;
+        max-width: 90%;
+        height: auto;
+    }
+    .aboutTop .arrow{
+        grid-area: 1/3;
+    }
+    .aboutTop .years{
+        grid-area: 2/1;
+        margin: 0;
+    }
+    .years{
+        margin: 20%;
+        margin-top: 40%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .aboutContent{
+        margin: 5% 15% 0 15%;
+        display: grid;
+        grid-template-columns: 70% 30%;
+    }
+    .aboutContent h2{
+        grid-area: 1;
+        margin-bottom: 10%;
+    }
+    .aboutContent p{
+        grid-area: 2/1/3/1;
+        margin: 0;  
+    }
+    .aboutContent h1{
+        grid-area: 2/2/3/3;
+        margin: 0;
+        text-align: center;
+    }
+    .aboutContent h3{
+        margin: 0%;
+        grid-area: 3/2;
+        text-align: center;
+    }
+    .aboutContent a{
+        grid-area: 4;
+        background: #5468E7;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .work .conter{
+      margin-left: 15%;
+    }
+    .workTop{
+      display: flex;
+      justify-content: flex-start;
+    }
+    .workTop h1{
+      margin-top: 0;
+      margin-left: 15%;
+    }
+    .workContent{
+      margin: 0 5% 5% 5%;
+      display: grid;
+      grid-template-columns: 4;
+      grid-template-rows: 2;
+      border-radius: 8px;
+      align-items: start;
+      box-shadow: #EBE6ED;
+    }
+    .workContent img{
+      max-width: 100px;
+      margin: 20% 0% 0% 0%;
+      margin-bottom: 5%;
+    }
+    .workContent .strategy{
+      grid-area: 1/1/2/2;
+      border-radius: 8px;
+      align-items: center;
+      text-align: center;
+      color: #5468E7;
+    }
+    .workContent .branding{
+      grid-area: 1/2/2/3;
+      border-radius: 8px;
+      text-align: center;
+      color: #5468E7;
+    }
+    .workContent .interative{
+      grid-area: 1/3/2/4;
+      border-radius: 8px;
+      text-align: center;
+      color: #5468E7;
+    }
+    .workContent .communicate{
+      grid-area: 1/4/2/5;
+      border-radius: 8px;
+      text-align: center;
+      color: #5468E7;
+    }
+
+    .services .conter{
+      margin-left: 15%;
+      color: #5468E7;
+    }
+    .servicesTop{
+      display: grid;
+      grid-template-columns: 75% 25%;
+      margin-left: 15%;
+    }
+    .servicesTop h1{
+      margin: 0;
+    }
+    .servicesTop .button{
+      width: fit-content;
+      height: fit-content;
+      margin: 0;
+      text-align: start;
+    }
+    .servicesTop p{
+      margin-right: 20%;  
+    }
+    .featuredWork{
+      margin-left: 5%;
+      display: grid;
+      grid-template-columns: 35% 60%;
+      grid-template-rows: 10% 10% 10% 10%;
+    }
+    .featuredWork .button{
+      grid-area: 2;
+      width: fit-content;
+      height: fit-content;
+      margin: 0;
+      text-align: start;
+      border-radius: 100px;
+    }
+    .featuredWork h3{
+      grid-area: 3/1; 
+
+    }
+    .featuredWork p{
+      grid-area: 4/1;
+    }
+    .featuredWork img{
+      grid-row-start: 1;
+      grid-column-start: 2;
+      grid-row-end: 1;
+      max-width: 100%; 
+    }
+
+    .servicesBottom{
+      display: grid;
+      grid-template-columns: 2;
+      margin: 0% 15% 5% 15%;
+      column-gap: 15%;
+    }
+    .servicesBottom img{
+      max-width: 100%;
+      margin: 10% 0% 0% 0%;
+      margin-bottom: 5%;
+    }
+    .servicesBottom h3{
+      margin: 0;
+    }
+    .servicesBottom .project1{
+      grid-area: 1/1;
+      margin-bottom: 0%;
+      margin-top: 50%;
+      text-align: center;
+    }
+    .servicesBottom .project2{
+      grid-area: 1/2;
+      margin-bottom: 15%;
+      margin-top: 0%;
+      text-align: center;
+    }
+    .servicesBottom .project3{
+      grid-area: 2/1;
+      margin-bottom: 0%;
+      margin-top: 50%;
+      text-align: center;
+    }
+    .servicesBottom .project4{
+      grid-area: 2/2;
+      margin-bottom: 50%;
+      margin-top: 0%;
+      text-align: center;
+    }
+
+    .jobs{
+      display: grid;
+      grid-template-columns: 60% 40%;    
+      margin: 5% 15% 20% 15%;
+    }
+    .jobsAvalable{
+      display: grid;
+      row-gap: 4%;
+    }
+    .job{
+      padding: 5% 5% 5% 5%;
+      border-radius: 10px;
+      background-color: #fff;
+      height: fit-content;
+      margin: 0;
+    }
+
+    .contact{
+      border-radius: 100px;
+      background-color: #5468E7;
+      color: #fff;
+      margin-bottom: 15%;
+      margin-top: 15%;
+    }
+    .contactBottom{
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
+    .contactBottom h3{
+      margin: 15% 15% 15% 15%;
+    }
+    .contactBottom img{
+      margin: 15% 15% 15% 15%;
+      max-width: 50%;
+    }
+    .sayHello{
+      border-bottom: 2px #fff;
+      margin: 0;
+      text-align: center;
+      margin-bottom: 10%;
+    }
+    .sayHello img{
+      max-width: 25%;
+      margin: 10% 0% 0% 0%;
+      margin-bottom: 5%;
+    }
+
+    footer{
+      text-align: center;
+    }
+    footer ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center; /* Centraliza os itens da barra de navegação */
+      align-items: center;
+    }
+    footer li {
+      margin-right: 0;
+      align-items: center;
+    }
+    footer a {
+      color: #232340;
+      text-decoration: none;
+      padding: 5px;
+      align-items: center;
+    }
+    footer img{
+      margin-bottom: 2%;
+    }
+
+    .Follow{
+      margin-left: 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    .socialmedia{
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .socialmedia img{
+      max-width: 50%;
+      margin-left: 5%;
+    }
+    
+    
+    section {
+      padding: 20px;
+      margin-top: 40px; /* Adiciona margem para compensar a barra de navegação fixa */
+    }
+
+    #home {
+      background-color: #fff;
+    }
+
+    #about {
+      background-color: #232340;
+      color:white;
+    }
+
+    #services {
+      background-color: #f9f9f9;
+    }
+
+    #jobs {
+      background-color: #EDE5F0;
+    
+    }
+
+    .conter {
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+  /* Adjustments for mobile devices */
+  header {
+    padding: 5px;
+  }
+
+  nav {
+    margin: 0.5em;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+  
+  .logo {
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 10px 20px;
+  }
+
+    /* Adjustments for mobile devices */
+    .home {
+    margin: 1em;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    grid-row-gap: 1em;
+  }
+
+  .home img {
+    grid-column-start: 1;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .home p,
+  .home h1,
+  .home a {
+    margin-left: 0;
+    text-align: center;
+  }
+  /* Adjustments for mobile devices */
+  .about {
+    margin: 1em;
+  }
+
+  .about .conter {
+    margin-left: 0;
+  }
+
+  .aboutTop {
+    grid-template-columns: 100%;
+  }
+
+  .aboutTop img {
+    margin: 2em auto;
+    grid-area: unset;
+    max-width: 100%;
+  }
+
+  .aboutTop .arrow,
+  .aboutTop .years {
+    display: none;
+  }
+
+  .aboutContent {
+    grid-template-columns: 100%;
+  }
+
+  .aboutContent h2 {
+    margin-bottom: 5%;
+  }
+
+  .aboutContent h1,
+  .aboutContent h3 {
+    text-align: center;
+  }
+
+  .work .conter {
+    margin-left: 0;
+  }
+
+  .workTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workTop h1 {
+    margin-left: 0;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .workContent {
+    margin: 0 5%;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+  }
+
+  .workContent img {
+    margin: 2em auto;
+  }
+
+  .workContent .strategy,
+  .workContent .branding,
+  .workContent .interative,
+  .workContent .communicate {
+    grid-area: unset;
+    margin-bottom: 2em;
+  }
+
+  .services .conter {
+    margin-left: 0;
+  }
+
+  .servicesTop {
+    grid-template-columns: 100%;
+    margin-left: 0;
+    margin-bottom: 2em;
+  }
+
+  .servicesTop h1,
+  .servicesTop p,
+  .servicesTop .button {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1em;
+  }
+
+  .featuredWork {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+  }
+
+  .featuredWork img {
+    grid-row-start: unset;
+    grid-column-start: unset;
+    margin: 2em auto;
+  }
+
+  .featuredWork h3,
+  .featuredWork p {
+    text-align: center;
+    margin: 0;
+  }
+
+  .servicesBottom {
+    grid-template-columns: 100%;
+    margin: 0;
+  }
+
+  .servicesBottom img {
+    margin: 2em auto;
+  }
+
+  .servicesBottom .project1,
+  .servicesBottom .project2,
+  .servicesBottom .project3,
+  .servicesBottom .project4 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .jobs {
+    grid-template-columns: 100%;
+    margin: 5% 0;
+  }
+
+  .job {
+    padding: 5% 0;
+  }
+
+  .contactBottom {
+    grid-template-columns: 1fr;
+  }
+
+  .contactBottom h3 {
+    margin: 0;
+    text-align: center;
+    margin-bottom: 10%;
+  }
+
+  .contactBottom img {
+    margin: 0 auto;
+    max-width: 80%;
+  }
+
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><div class="logo"></div><img src="img/light-mode.png" alt="Logo"></div></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#jobs">Jobs</a></li>
+        <li><a class="button" href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="home">
+        <div class="home">
+            <h1>Stand Out from The Crowd.</h1>
+            <p>full-service agency, busy designing and building beautiful digital products, brands, and experiences.</p>
+            <img src="img/3d + wall.png" alt="Imagem">
+            <a class="button" href="#work">Recent Work</a>
+        </div>
+  </section>
+
+  <section id="about">
+    <div class="about">
+            <div class="conter">
+                <h4>01.</h4><h4>Who We Are</h4>
+            </div>
+            <div class="aboutTop">
+                <h1>We Make Designs that Lead and Inpire.</h1>
+                <img src="img/[ 4 ] – Desktop.png" alt="Imagem">
+                <div class="arrow"><img src="img/Arrow.png" alt="arrow"></div>
+                <div class="years">
+                    <div class="2017"><h4>2017</h4></div>
+                    <div class="2018"><h4>2018</h4></div>
+                    <div class="2019"><h4>2019</h4></div>
+                    <div class="2020"><h4>2020</h4></div>
+                    <div class="2021"><h4>2021</h4></div>
+                </div>
+            </div>
+            <div class="aboutContent">
+                <h2>A design team building a curated marketplace for UI designers.</h2>
+                <p>4,404 curated design resources to energize your creative workflow. We're a growing family of 334,531 designers and makers from around the world</p>
+                <a class="button" href="#contact">Contact Us</a>
+                <h1>28</h1>
+                <h3>Bigest Branding</h3>
+            </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="work">
+      <div class="conter">
+        <h4>02.</h4><h4>What We Do</h4>
+      </div>
+        <div class="workTop">
+          <h1>We Make Designs that Lead and Inpire.</h1>
+                <div class="arrow"><img src="img/Arrow2.png" alt="arrow"></div>
+        </div>
+        <div class="workContent">
+          <div class="strategy">
+            <img src="img/iconStrategy.png" alt="StrategyIcon">
+            <h3>Strategy</h3>
+          </div>
+          <div class="branding">
+            <img src="img/iconBranding.png" alt="BrandingIcon">
+            <h3>Branding</h3>
+          </div>
+          <div class="interative">
+            <img src="img/iconInterative.png" alt="InterativeIcon">
+            <h3>Interative</h3>
+          </div>
+          <div class="communicate">
+            <img src="img/iconCommunicate.png" alt="CommunicateIcon">
+            <h3>Communicate</h3>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="services">
+      <div class="conter">
+        <h4>03.</h4><h4>Famous Projects</h4>
+      </div>
+      <div class="servicesTop">
+        <h1>Our Partnerships</h1>
+        <a class="button" href="#contact">Contact Us</a>
+        <p>Agency is a full-service agency, busy designing and building beautiful digital products, brands, and experiences.</p>
+      </div>
+      <div class="featuredWork">
+        <a class="button" href="#services">Featured Product</a>
+        <h3>Sapiens: The Free Character Builder App.</h3>
+        <p>Beautiful library of modular, component-based character illustrations free to use for all your personal or client projects.</p>
+        <img src="img/servicesImg.png" alt="Services img"> 
+      </div>
+      <div class="servicesBottom">
+        <div class="project1">
+          <h3>Bento 3D Illustration</h3>
+          <img src="img/portfolio card 1.png" alt="card1">
+          <p>Agency is a full-service agency, busy designing and building beautiful digital products, brands, and experiences.</p>
+        </div>
+        <div class="project2">
+          <h3>Bento Vol.2</h3>
+          <img src="img/portfolio card 2.png" alt="card2">
+          <p>Agency is a full-service agency, busy designing and building beautiful digital products, brands, and experiences.</p>
+        </div>
+        <div class="project3">
+          <h3>Sapiens: Man</h3>
+          <img src="img/portfolio card 3.png" alt="card3">
+          <p>Agency is a full-service agency, busy designing and building beautiful digital products, brands, and experiences.</p>
+        </div>
+        <div class="project4">
+          <h3>Bento Vol.3</h3>
+          <img src="img/portfolio card 4.png" alt="card4">
+          <p>Agency is a full-service agency, busy designing and building beautiful digital products, brands, and experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jobs">
+    <div class="jobs">
+      <div>
+      <div class="conter">
+        <h4>04.</h4><h4>We are hiring</h4>
+      </div>
+      <h1>Jobs</h1>
+      <p>Agency is a full-service agency, busy designing and building beautiful digital products, brands, and experiences.</p>
+      <img src="img/scroll down button.png" alt="Arrow3">
+      </div>
+      <div class="jobsAvalable">
+        <div class="job">
+          <h2>Graphic Designer</h2>
+          <h3>2 years experience</h3>
+          <img src="img/arrow-down.png" alt="arrow-down">
+        </div>
+        <div class="job">
+          <h2>Visual Designer</h2>
+          <h3>2 years experience</h3>
+          <img src="img/arrow-down.png" alt="arrow-down">
+        </div>
+        <div class="job">
+          <h2>Art Director</h2>
+          <h3>2 years experience</h3>
+          <img src="img/arrow-down.png" alt="arrow-down">
+        </div>
+        <div class="job">
+          <h2>Web Designer</h2>
+          <h3>2 years experience</h3>
+          <img src="img/arrow-down.png" alt="arrow-down">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div class="sayHello">
+        <img src="img/sayHello.png" alt="sayHello">
+        <h2>A design team building a curated marketplace for UI designers.</h2>
+      </div>
+      <div class="contactBottom">
+        <h3>Let's talk about your next project</h3>
+        <img src="img/Group.png" alt="Invest in your designs today!">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo"></div><img src="img/light-mode.png" alt="Logo"></div>
+    <h4>Agency is a full-service agency, busy designing and building beautiful<br>digital products, brands, and experiences.</h4>
+    <div class="footerNav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#jobs">Jobs</a></li>
+        </ul>
+    </div>
+    <div class="Follow">
+      <p>© 2020, UI8 LLC.</p>
+      <div class="socialmedia">
+        <p>Follow Us</p>
+        <img src="img/follow.png" alt="Facebook Instagram Youtube">
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Rolar suavemente para a seção correspondente quando uma opção do menu for clicada
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const section = document.querySelector(this.getAttribute('href'));
+        window.scrollTo({
+          behavior: 'smooth',
+          top: section.offsetTop
+        });
+      });
+    });
+  </script>
+</body>
+</html>
